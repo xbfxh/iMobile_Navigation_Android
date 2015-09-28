@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item >
+        <clip
+            android:clipOrientation="vertical"
+            android:gravity="bottom">
+            <shape>
+                <solid android:color="#478efa" />
+
+			    <stroke
+			        android:width="0.1dp"
+			        android:color="#478efa" />
+			
+			    <!-- 圆角 -->
+			    <corners
+			        android:bottomLeftRadius="2dp"
+			        android:bottomRightRadius="2dp"
+			        android:topLeftRadius="2dp"
+			        android:topRightRadius="2dp" />
+			
+			</shape>
+        </clip>
+    </item>
+</layer-list>

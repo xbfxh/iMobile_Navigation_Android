@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/ly_poi_details_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/poi_spinner_bg_shadow_normal">
+        
+        <ImageButton
+            android:id="@+id/btn_poi_details_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_selector_back" />
+            
+		<TextView
+            android:id="@+id/txt_poi_details_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="某大厦"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:gravity="center"/>  
+    </RelativeLayout>
+    
+	<LinearLayout
+	    android:id="@+id/ly_poi_details_introduction"
+	 	android:layout_width="match_parent"
+	 	android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:layout_margin="6dp"
+		android:padding="10dp"
+		android:layout_below="@id/ly_poi_details_top"
+	    android:background="@drawable/layout_border_introduction_list" >
+	
+		<TextView
+			android:id="@+id/txt_poi_details_name"
+			android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	      	android:layout_margin="5dp"
+	        android:text="地址 : "
+	        android:textSize="18dp"
+	        android:textColor="#000000" />
+	     
+		<TextView
+	      	android:id="@+id/txt_poi_details_distance"
+	      	android:layout_width="wrap_content"
+	      	android:layout_height="wrap_content"
+	        android:layout_margin="5dp"
+	        android:text="距离 : "
+	        android:textSize="18dp"
+	        android:textColor="#000000"/>
+	  
+		<TextView
+	      	android:id="@+id/txt_poi_details_tel"
+	      	android:layout_width="wrap_content"
+	      	android:layout_height="wrap_content"
+	        android:layout_margin="5dp"
+	        android:text="电话 : "
+	        android:textSize="18dp"
+	        android:textColor="#000000" />
+		<TextView
+	      	android:id="@+id/txt_poi_details_zipcode"
+	      	android:layout_width="wrap_content"
+	      	android:layout_height="wrap_content"
+	        android:layout_margin="5dp"
+	        android:text="邮编 : "
+	        android:textSize="18dp"
+	        android:textColor="#000000" />
+	</LinearLayout>
+
+	<LinearLayout
+	    android:id="@+id/ly_poi_details_tool"
+	 	android:layout_width="match_parent"
+	 	android:layout_height="wrap_content"
+		android:layout_centerVertical="true"
+		android:layout_margin="6dp"
+		android:layout_below="@id/ly_poi_details_introduction"
+	    android:background="@drawable/layout_border_introduction_list" >
+	
+		<Button
+			android:id="@+id/btn_poi_details_nearby"
+			android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	      	android:layout_margin="10dp"
+	        android:text="搜周边"
+	        android:textSize="18sp"
+	        android:textColor="#000000" 
+	        android:background="@drawable/btn_navi_normal_selector"/>
+		<TextView
+	      	android:layout_width="1dp"
+	      	android:layout_height="match_parent"
+	      	android:layout_margin="10dp"
+	      	android:background="#BFBFBF"/>
+		<Button
+			android:id="@+id/btn_poi_details_open_route"
+			android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	      	android:layout_margin="10dp"
+	        android:text="到这去"
+	        android:textSize="18sp"
+	        android:textColor="#000000"
+	        android:background="@drawable/btn_navi_normal_selector" />
+	</LinearLayout>
+
+
+</RelativeLayout>

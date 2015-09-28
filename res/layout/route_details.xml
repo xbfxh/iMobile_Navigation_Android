@@ -1,0 +1,114 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/ly_route_details_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/poi_spinner_bg_shadow_normal">
+        
+        <ImageButton
+            android:id="@+id/btn_route_details_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_selector_back"/>
+        
+		<TextView
+            android:id="@+id/txt_route_details_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="路径详情"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:gravity="center"/>  
+    </RelativeLayout>
+    
+    <RelativeLayout
+	    android:id="@+id/ly_route_details_tool"
+	 	android:layout_width="match_parent"
+	 	android:layout_height="wrap_content"
+		android:layout_margin="6dp"
+		android:paddingTop="15dp"
+		android:paddingBottom="15dp"
+		android:paddingLeft="10dp"
+		android:paddingRight="10dp"
+		android:layout_below="@id/ly_route_details_top"
+	    android:background="@drawable/layout_border_introduction_list" >
+	
+        <Button
+			android:id="@+id/btn_route_details_navi"
+			android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	      	android:layout_marginLeft="25dp"
+	      	android:layout_marginRight="20dp"
+			android:layout_centerVertical="true"
+	        android:text="导航"
+	        android:textSize="15sp"
+	        android:textColor="#3385ff"
+	        android:drawablePadding="5dp"
+	        android:drawableTop="@drawable/icon_landing_arrow"
+	        android:background="@drawable/btn_navi_normal_selector" />
+        
+		<TextView
+	      	android:id="@+id/txt_route_details_interval"
+	      	android:layout_width="1dp"
+	      	android:layout_height="wrap_content"
+	      	android:layout_toLeftOf="@id/btn_route_details_navi"
+	      	android:layout_alignTop="@id/btn_route_details_navi"
+	      	android:layout_alignBottom="@id/btn_route_details_navi"
+	      	android:background="#BFBFBF"/>
+        <LinearLayout 
+       	    android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_toLeftOf="@id/txt_route_details_interval"
+	        android:orientation="vertical">
+	        
+			<TextView
+				android:id="@+id/txt_route_details_distance"
+				android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		      	android:layout_margin="2dp"    	
+		        android:text="距离："
+		        android:textSize="15sp"
+		        android:textColor="#000000" />
+			<TextView
+				android:id="@+id/txt_route_details_time"
+				android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		      	android:layout_margin="2dp"
+		        android:text="时间："
+		        android:textSize="15sp"
+		        android:textColor="#000000" />
+		</LinearLayout>	
+	</RelativeLayout>
+	
+	<RelativeLayout
+	    android:id="@+id/ly_route_details_introduction"
+	 	android:layout_width="match_parent"
+	 	android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:layout_margin="6dp"
+		android:layout_below="@id/ly_route_details_tool"
+	    android:background="@drawable/layout_border_introduction_list" >
+	
+		<ListView
+            android:id="@+id/lst_route_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:divider="#EFEFEF"
+            android:dividerHeight="0.1dp">
+        </ListView>
+	  
+	</RelativeLayout>
+
+</RelativeLayout>

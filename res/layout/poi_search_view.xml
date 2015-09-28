@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/ly_poi_search_view_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/poi_spinner_bg_shadow_normal" >
+
+        <Button
+            android:id="@+id/btn_poi_search_view_search"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="搜索"
+            android:textColor="#ffffff" 
+            android:background="@drawable/button_selector_blue"/>
+
+        <ImageButton
+            android:id="@+id/btn_poi_search_view_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_selector_back" />
+
+        <EditText
+            android:id="@+id/edt_poi_search_view_back"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/btn_poi_search_view_search"
+            android:layout_toRightOf="@id/btn_poi_search_view_back"
+            android:background="@drawable/sapi_input"
+            android:drawableLeft="@drawable/common_icon_searchbox_magnifier"
+            android:drawablePadding="10dp"
+            android:hint="搜索..."
+            android:paddingLeft="10dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ly_poi_search_view_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ly_poi_search_view_top"
+        android:layout_margin="6dp"
+        android:background="@drawable/layout_border_introduction_list"
+        android:gravity="center_horizontal" >
+
+        <ListView
+            android:id="@+id/lst_poi_search_view_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:divider="#EFEFEF"
+            android:dividerHeight="0.1dp">
+        </ListView>
+
+    </RelativeLayout>   
+</RelativeLayout>

@@ -26,6 +26,13 @@ public class MyAssetManager {
 			sAssetManager = new WeakReference<AssetManager> (assets);
 			sInstance = new MyAssetManager();
 			sInited = true;
+			try {
+				String[] strings = sAssetManager.get().list("voice");
+				System.out.println();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	

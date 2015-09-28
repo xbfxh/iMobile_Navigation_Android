@@ -1,0 +1,247 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/ly_nearby_view_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/poi_spinner_bg_shadow_normal" >
+
+        <Button
+            android:id="@+id/btn_nearby_view_search"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:text="搜索" 
+            android:visibility="invisible"/>
+
+        <ImageButton
+            android:id="@+id/btn_nearby_view_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_selector_back" />
+
+        <TextView
+            android:layout_width="match_parent"
+        	android:layout_height="50dp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="附近"/>
+        
+        <EditText
+            android:id="@+id/edt_nearby_view_search"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/btn_nearby_view_search"
+            android:layout_toRightOf="@id/btn_nearby_view_back"
+            android:background="@drawable/sapi_input"
+            android:drawableLeft="@drawable/common_icon_searchbox_magnifier"
+            android:drawablePadding="10dp"
+            android:hint="搜索..."
+            android:paddingLeft="10dp" 
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ly_nearby_view_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ly_nearby_view_top"
+        android:layout_margin="6dp"
+        android:background="@drawable/layout_border_introduction_list"
+        android:gravity="center_horizontal" >
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ly_nearby_view_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/layout_border_introduction_list" >
+
+       <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical">
+            <TextView
+	            android:id="@+id/txt_chaoshi"
+	            android:layout_height="40dp"
+	            android:text="超市"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />
+			<TextView
+		      	android:layout_width="0.5dp"
+		      	android:layout_height="20dp"
+		      	android:layout_margin="1dp"
+		      	android:background="#BFBFBF"/>
+	        <TextView
+	            android:id="@+id/txt_gongce"
+	            android:layout_height="40dp"
+	            android:text="公厕"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />
+	        <TextView
+		      	android:layout_width="0.5dp"
+		      	android:layout_height="20dp"
+		      	android:layout_margin="1dp"
+		      	android:background="#BFBFBF"/>
+	        <TextView
+	            android:id="@+id/txt_xuexiao"
+	            android:layout_height="40dp"
+	            android:text="学校"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />
+			<TextView
+		      	android:layout_width="0.5dp"
+		      	android:layout_height="20dp"
+		      	android:layout_margin="1dp"
+		      	android:background="#BFBFBF"/>
+	        <TextView
+	            android:id="@+id/txt_jiudian"
+	            android:layout_height="40dp"
+	            android:text="酒店"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />        
+        </TableRow>
+
+        <TextView
+			android:layout_width="match_parent"
+	 		android:layout_height="0.5dp"
+	 		android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+	    	android:background="#BFBFBF"/>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical" >
+	        <TextView
+	            android:id="@+id/txt_gongjiaozhan"
+	            android:layout_height="40dp"
+	            android:text="公交站"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />
+			<TextView
+		      	android:layout_width="0.5dp"
+		      	android:layout_height="20dp"
+		      	android:layout_margin="1dp"
+		      	android:background="#BFBFBF"/>
+	        <TextView
+	            android:id="@+id/txt_jiayouzhan"
+	            android:layout_height="40dp"
+	            android:text="加油站"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />
+	        <TextView
+		      	android:layout_width="0.5dp"
+		      	android:layout_height="20dp"
+		      	android:layout_margin="1dp"
+		      	android:background="#BFBFBF"/>
+	        <TextView
+	            android:id="@+id/txt_yinhang"
+	            android:layout_height="40dp"
+	            android:text="银行"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />
+			<TextView
+		      	android:layout_width="0.5dp"
+		      	android:layout_height="20dp"
+		      	android:layout_margin="1dp"
+		      	android:background="#BFBFBF"/>
+	        <TextView
+	            android:id="@+id/txt_yiyuan"
+	            android:layout_height="40dp"
+	            android:text="医院"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />        
+        </TableRow>
+
+        <TextView
+			android:layout_width="match_parent"
+	 		android:layout_height="0.5dp"
+	 		android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+	    	android:background="#BFBFBF"/>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical" >
+	        <TextView
+	            android:id="@+id/txt_meishi"
+	            android:layout_height="40dp"
+	            android:text="美食"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />
+			<TextView
+		      	android:layout_width="0.5dp"
+		      	android:layout_height="20dp"
+		      	android:layout_margin="1dp"
+		      	android:background="#BFBFBF"/>
+	        <TextView
+	            android:id="@+id/txt_shangchang"
+	            android:layout_height="40dp"
+	            android:text="商场"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />
+	        <TextView
+		      	android:layout_width="0.5dp"
+		      	android:layout_height="20dp"
+		      	android:layout_margin="1dp"
+		      	android:background="#BFBFBF"/>
+	        <TextView
+	            android:id="@+id/txt_dianyingyuan"
+	            android:layout_height="40dp"
+	            android:text="电影院"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />
+			<TextView
+		      	android:layout_width="0.5dp"
+		      	android:layout_height="20dp"
+		      	android:layout_margin="1dp"
+		      	android:background="#BFBFBF"/>
+	        <TextView
+	            android:id="@+id/txt_tingchechang"
+	            android:layout_height="40dp"
+	            android:text="停车场"
+	            android:textColor="#000000"
+	            android:gravity="center"
+	            android:layout_weight="1"
+		        android:background="@drawable/btn_navi_normal_selector" />        
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

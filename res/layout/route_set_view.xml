@@ -1,0 +1,141 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededed"
+    tools:context=".MainActivity" >
+
+    <RelativeLayout
+        android:id="@+id/ly_route_set_view_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/poi_spinner_bg_shadow_normal">
+        
+        <ImageButton
+            android:id="@+id/btn_route_set_view_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_selector_back"/>
+        <Button
+            android:id="@+id/btn_route_set_view_ok"
+            android:layout_width="50dp"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:text="搜索"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_selector_blue"/>
+		<TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="路径规划设置"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:gravity="center"/>  
+    </RelativeLayout>
+    
+	<RelativeLayout
+	    android:id="@+id/ly_route_set_view_point"
+	 	android:layout_width="match_parent"
+	 	android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:layout_margin="6dp"
+		android:layout_below="@id/ly_route_set_view_top"
+	    android:background="@drawable/layout_border_introduction_list" >
+	
+	    <LinearLayout
+		    android:id="@+id/ly_poi_details_tool"
+		 	android:layout_width="match_parent"
+		 	android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_margin="6dp"
+			android:orientation="vertical" >
+			<TextView
+				android:id="@+id/txt_route_set_view_startpt"
+				android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		      	android:layout_margin="10dp"
+		        android:text="起点 : 我的位置"
+		        android:textSize="18dp"
+		        android:textColor="#000000" />
+			<TextView
+				android:layout_width="match_parent"
+		 		android:layout_height="0.5dp"
+		 		android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+		    	android:background="#BFBFBF"/>
+			<TextView
+				android:id="@+id/txt_route_set_view_endpt"
+				android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		      	android:layout_margin="10dp"
+		        android:text="终点 :"
+		        android:textSize="18dp"
+		        android:textColor="#000000" />
+		</LinearLayout>
+		 
+	</RelativeLayout>
+
+	<LinearLayout
+	 	android:layout_width="match_parent"
+	 	android:layout_height="wrap_content"
+		android:layout_centerVertical="true"
+		android:layout_margin="6dp"
+		android:layout_below="@id/ly_route_set_view_point"
+	    android:background="@drawable/layout_border_introduction_list" >
+	
+	    <TextView
+	      	android:layout_width="wrap_content"
+	      	android:layout_height="wrap_content"
+	      	android:layout_marginLeft="10dp"
+	      	android:layout_gravity="center_vertical"
+	      	android:text="选项："
+	      	android:textSize="15dp"
+	      	android:textColor="#000000" />
+
+	    <RadioGroup
+	        android:id="@+id/rg_navi_mode"
+	        android:layout_width="wrap_content"
+	      	android:layout_height="wrap_content"
+	      	android:orientation="vertical">
+	        
+		    <RadioButton
+		        android:id="@+id/rbtn_tuijian"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="10dp"
+		      	android:layout_gravity="center_vertical"
+		        android:text="推荐模式"
+		        android:textColor="#000000" 
+		        android:checked="true"/>
+		    <RadioButton
+		        android:id="@+id/rbtn_shijian"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="10dp"
+		      	android:layout_gravity="center_vertical"
+		        android:text="时间最短"
+		        android:textColor="#000000" />
+		    <RadioButton
+		        android:id="@+id/rbtn_juli"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="10dp"
+		      	android:layout_gravity="center_vertical"
+		        android:text="距离最短"
+		        android:textColor="#000000"  />
+		    <RadioButton
+		        android:id="@+id/rbtn_feiyong"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="10dp"
+		      	android:layout_gravity="center_vertical"
+		        android:text="最少收费"
+	        android:textColor="#000000"  />	
+		</RadioGroup>
+	</LinearLayout>
+</RelativeLayout>

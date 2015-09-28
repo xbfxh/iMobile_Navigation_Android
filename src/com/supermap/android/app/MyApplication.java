@@ -1,16 +1,12 @@
 package com.supermap.android.app;
 
-
-
 import java.util.ArrayList;
-
 import android.app.Activity;
 import android.app.Application;
 import android.os.Process;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
-
 import com.supermap.android.filemanager.MyAssetManager;
 import com.supermap.android.filemanager.MySharedPreferences;
 
@@ -21,6 +17,9 @@ public class MyApplication extends Application {
 	
 	private static MyApplication sInstance = null;
 
+	private boolean isLongPressEnable  = true;
+	private boolean isSingleTapEnable  = true;
+	
 	private ArrayList<Activity> mActivities = new ArrayList<Activity>();
 	@Override
 	public void onCreate() 
@@ -98,6 +97,22 @@ public class MyApplication extends Application {
 			act.finish();
 		}
 		Process.killProcess(Process.myPid());
+	}
+	
+	public boolean isLongPressEnable() {
+		return isLongPressEnable;
+	}
+	
+	public boolean isSingleTapEnable() {
+		return isSingleTapEnable;
+	}
+	
+	public void setLongPressEnable(boolean isLongPressEnable) {
+		this.isLongPressEnable = isLongPressEnable;
+	}
+	
+	public void setSingleTapEnable(boolean isSingleTapEnable) {
+		this.isSingleTapEnable = isSingleTapEnable;
 	}
 }
 

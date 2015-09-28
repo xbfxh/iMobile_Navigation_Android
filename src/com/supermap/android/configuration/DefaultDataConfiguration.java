@@ -12,24 +12,18 @@ import com.supermap.android.filemanager.Decompressor;
 public class DefaultDataConfiguration {
 	
 	private final       String DataDir     = "NaviData";
-	public static final String MapDataPath = MyApplication.SDCARD + "SuperMap/Demos/Data/NaviData/";
+	public static final String MapDataPath = MyApplication.SDCARD + "SuperMap/Demos/Data/SuperMapNaviDemo/NaviData/";
 	
-	private final       String LicenseName = "Trial License.slm";
-	public static final String LicensePath = MyApplication.SDCARD + "SuperMap/License/" ;
-	
+	private final       String LicenseName = "SuperMap iMobile Trial.slm";
+	public static final String LicensePath = MyApplication.SDCARD + "SuperMap/Demos/License/" ;
+	public static final String DefaultWorkspace = MapDataPath + "beijing.smwu";
 	public DefaultDataConfiguration () 
 	{
 		
 	}
 	
-	/**
-	 * 配置数据
-	 */
-	public void autoConfig () 
-	{
-		
+	public void checkLicense() {
 		File licenseDir = new File (LicensePath);
-		File mapDataDir = new File (MapDataPath);
 		
 		if(!licenseDir.exists()){
 			FileManager.getInstance().mkdirs(LicensePath);
@@ -41,21 +35,63 @@ public class DefaultDataConfiguration {
 				configLicense();
 			}
 		}
+	}
+	
+	/**
+	 * 配置数据
+	 */
+	public boolean checkData() {
+		File mapDataDir = new File (MapDataPath);
 		
 		if (!mapDataDir.exists())
 		{
-			FileManager.getInstance().mkdirs(MapDataPath);
-			configMapData();
+			return false;
 		}else {
 			boolean isWorkspaceFileExists = FileManager.getInstance().isFileExist(MapDataPath + "NaviMap/RoadNameIndex.ndf");
 			
 			if(isWorkspaceFileExists == false)
 			{
-				configMapData();
+				return false;
 			}
+			
+			return true;
 		}
 	}
 	
+	/**
+	 * 配置数据
+	 */
+//	public void autoConfig () 
+//	{
+//		
+//		File licenseDir = new File (LicensePath);
+//		File mapDataDir = new File (MapDataPath);
+//		
+//		if(!licenseDir.exists()){
+//			FileManager.getInstance().mkdirs(LicensePath);
+//			configLicense();
+//		}else {
+//			boolean isLicenseExists = FileManager.getInstance().isFileExist(LicensePath + LicenseName);
+//			if(isLicenseExists == false)
+//			{
+//				configLicense();
+//			}
+//		}
+//		
+//		if (!mapDataDir.exists())
+//		{
+//			FileManager.getInstance().mkdirs(MapDataPath);
+//			configMapData();
+//		}else {
+//			boolean isWorkspaceFileExists = FileManager.getInstance().isFileExist(MapDataPath + "NaviMap/RoadNameIndex.ndf");
+//			
+//			if(isWorkspaceFileExists == false)
+//			{
+//				configMapData();
+//			}
+//		}
+//	}
+//	
     /**
      * 配置许可文件
      */
@@ -70,7 +106,7 @@ public class DefaultDataConfiguration {
 	/**
 	 * 配置地图数据
 	 */
-	private void configMapData () 
+	public void configMapData () 
 	{
 		String[] datas = MyAssetManager.getInstance().openDir(DataDir);
 		for (String data : datas)
@@ -80,11 +116,14 @@ public class DefaultDataConfiguration {
 				String zip = MapDataPath + "/" + data;
 
 				boolean result = FileManager.getInstance().copy(is, zip);
-				if (result)
-					Decompressor.UnZipFolder(zip, MapDataPath);
+				if (result){
+					if (zip.endsWith(".zip")) {
+						Decompressor.UnZipFolder(zip, MapDataPath);
 
-				File ziFile = new File(zip);
-				ziFile.delete();
+						File ziFile = new File(zip);
+						ziFile.delete();
+					}
+				}
 			}
 		}
 	}
