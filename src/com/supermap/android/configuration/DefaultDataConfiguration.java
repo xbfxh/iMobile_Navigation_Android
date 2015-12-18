@@ -47,7 +47,7 @@ public class DefaultDataConfiguration {
 		{
 			return false;
 		}else {
-			boolean isWorkspaceFileExists = FileManager.getInstance().isFileExist(MapDataPath + "NaviMap/RoadNameIndex.ndf");
+			boolean isWorkspaceFileExists = FileManager.getInstance().isFileExist(MapDataPath + "NaviMap/AdimNameNameIndex");
 			
 			if(isWorkspaceFileExists == false)
 			{
