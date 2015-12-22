@@ -62,7 +62,7 @@ public class DataManager {
 		WorkspaceConnectionInfo m_info = new WorkspaceConnectionInfo();
 		m_info.setServer(DefaultDataConfiguration.DefaultWorkspace);   
 		m_info.setType(WorkspaceType.SMWU);
-		
+//		m_info.setPassword("daohang_beijing");
 		if (!mWorkspace.open(m_info)) {
 			return;
 		}

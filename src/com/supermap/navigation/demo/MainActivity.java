@@ -68,6 +68,9 @@ public class MainActivity extends Activity {
 	
 	private PoiShowView mPoiShowView = null;
 	private boolean mIsLocate = false;
+	private boolean mIsLocateClick = false;
+	private boolean mIsFirstLocate = false;
+	private boolean mIsShowInfo = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -90,13 +93,30 @@ public class MainActivity extends Activity {
 		}
 		
 		mPoiShowView = PoiShowView.getInstance(this, mMapView, mMainView);
+		
+		mIsFirstLocate = true;
+		naviLocate();
 	} 
 
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
-		naviLocate();
+		
 		super.onStart();
+	}
+	
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		
+		super.onStop();
+	}
+	
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		m_MyLocation.stopLocation();
+		super.onDestroy();
 	}
 	
 	/**
@@ -194,6 +214,9 @@ public class MainActivity extends Activity {
 			return;
 		}
 		
+		mIsLocateClick = true;
+		mIsShowInfo = true;
+		
 		TencentLocation location = m_MyLocation.getLocationInfo();
 		if(location == null ){
 					
@@ -205,7 +228,7 @@ public class MainActivity extends Activity {
 					//showInfo("现在无法定位，请稍后再试");
 					updataLocation(null);
 					stopLocateAnimation();
-					m_MyLocation.stopLocation();
+					//m_MyLocation.stopLocation();
 				}
 				
 				@Override
@@ -220,7 +243,7 @@ public class MainActivity extends Activity {
 					stopLocateAnimation();
 					TencentLocation location = m_MyLocation.getLocationInfo();
 					updataLocation(location);
-					m_MyLocation.stopLocation();
+					//m_MyLocation.stopLocation();
 				}
 			});
 			
@@ -237,22 +260,30 @@ public class MainActivity extends Activity {
 	}
 	
 	private void updataLocation(TencentLocation location) {	
+		
+		if (mNavigation != null && mNavigation.isGuiding()){						
+			return;
+		}
+		
 		Point2D point2D = null;
 		
 		if (location == null) {
-//			showInfo("现在无法定位，请稍后再试");	
-//			return;
+			if (mIsShowInfo) {
+				showInfo("现在无法定位，请稍后再试");	
+				mIsShowInfo = false;
+			}
+			return;
 	//		point2D = new Point2D(116.4019, 39.9892);
-			point2D = new Point2D(116.5052061584224, 39.985749510080936);
+//			point2D = new Point2D(116.5052061584224, 39.985749510080936);
 		} else {
 			point2D = mNavigation.encryptGPS(location.getLongitude(), location.getLatitude());	
-			Rectangle2D rect = mMap.getBounds();
-			if (!rect.contains(point2D)) {
-//				point2D.setX(116.4019);
-//				point2D.setY(39.9892);
-				point2D.setX(116.5052061584224);
-				point2D.setY(39.985749510080936);
-			}
+//			Rectangle2D rect = mMap.getBounds();
+//			if (!rect.contains(point2D)) {
+////				point2D.setX(116.4019);
+////				point2D.setY(39.9892);
+//				point2D.setX(116.5052061584224);
+//				point2D.setY(39.985749510080936);
+//			}
 		}
 		
 		mIsLocate = true;
@@ -262,12 +293,19 @@ public class MainActivity extends Activity {
 		GeoToolkit.Longitude_LatitudeToMap(mMap, point2D);
 		MapManager.getInstance(this).showLocationPointByCallOut(point2D, "location", R.drawable.navi_start, CalloutAlignment.CENTER);
 		
-		mMapControl.panTo(point2D, 300);
-		mMapControl.zoomTo(1/24990.0, 300);
-		// 在地图上显示该点
-//		mMap.setCenter(point2D);
-//		mMap.setScale(1 / 57373.046875);
-		mMap.refresh();
+		if (mIsLocateClick) {
+			mMapControl.panTo(point2D, 300);
+			if (mIsFirstLocate) {
+				mMapControl.zoomTo(1/24990.0, 300);
+				mIsFirstLocate = false;
+			}
+			
+			// 在地图上显示该点
+	//		mMap.setCenter(point2D);
+	//		mMap.setScale(1 / 57373.046875);
+			mMap.refresh();
+			mIsLocateClick = false;
+		}
 	}
 	
 	/**

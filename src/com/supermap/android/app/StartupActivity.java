@@ -31,7 +31,7 @@ public class StartupActivity extends Activity {
 		Environment.setLicensePath(LicPath);
 //		Environment.setOpenGLMode(true);
 		Environment.initialization(this);
-		
+//		Environment.setSuperMapCopyright("SuperMap Products");
 		setContentView(R.layout.activity_startup);
 		mApp = (MyApplication) getApplication();
 		mApp.registerActivity(this);
@@ -63,7 +63,7 @@ public class StartupActivity extends Activity {
 		if (!configuration.checkData()) {		
 	    	dialog.setCancelable(false);
 	    	dialog.setCanceledOnTouchOutside(false);
-	    	dialog.setMessage("正在初始化数据。。。");
+	    	dialog.setMessage("正在初始化数据,请不要关闭。。。");
 	    	dialog.show();
 	    	mIsDataExists = false;
 		} else {

@@ -101,6 +101,12 @@ public class RouteShowView extends BaseView {
 				// TODO Auto-generated method stub
 				
 			}
+
+			@Override
+			public void onPlayNaviMessage(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 
 		initView();

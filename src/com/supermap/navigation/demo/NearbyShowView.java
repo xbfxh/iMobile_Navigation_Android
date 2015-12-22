@@ -37,7 +37,6 @@ public class NearbyShowView extends BaseView {
 	private View mMainView = null;
 	private MapView mMapView = null;
 	private MapControl mMapControl = null;
-	private DynamicView mDynamicView = null;
 	
 	private RelativeLayout mViewMainBottom = null;
 	private View mViewNearbyShowBottom = null;
@@ -69,7 +68,6 @@ public class NearbyShowView extends BaseView {
 		mMainView = mainView;
 		mMapView = mapView;
 		mMapControl = MapManager.getInstance(mContext).getMapControl();
-		mDynamicView = MapManager.getInstance(mContext).getDynamicView();
 		
 		mViewList = new ArrayList<View>();
 		
@@ -423,16 +421,12 @@ public class NearbyShowView extends BaseView {
 		MapManager.getInstance(mContext).showLocationPointByCallOut(startPoint,
 				"location", R.drawable.navi_start, CalloutAlignment.CENTER);
 		
-		mDynamicView.clear();
-		mDynamicView.refresh();
 	}
 	
 	/**
 	 * 显示查询结果
 	 */
 	private void showPoi() {
-		mDynamicView.clear();
-		mDynamicView.refresh();
 		
 //		Bitmap bitmap1 = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.icon_marka);
 //		Bitmap bitmap2 = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.icon_markb);

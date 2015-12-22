@@ -1,11 +1,7 @@
 package com.supermap.navigation.demo;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-
 import com.supermap.data.Point2D;
 import com.supermap.data.Workspace;
 import com.supermap.mapping.CallOut;
@@ -13,8 +9,6 @@ import com.supermap.mapping.CalloutAlignment;
 import com.supermap.mapping.Map;
 import com.supermap.mapping.MapControl;
 import com.supermap.mapping.MapView;
-import com.supermap.mapping.dyn.DynamicView;
-import com.supermap.navigation.demo.R;
 
 public class MapManager {
 	
@@ -26,9 +20,7 @@ public class MapManager {
 	private MapView			mMapView        = null;
 	private Workspace		mWorkspace      = null;
 	private MapControl		mMapControl     = null;
-	private Map				mMap            = null;
-	private DynamicView		mDynamicView	= null;;
-	
+	private Map				mMap            = null;	
 	
 	static public MapManager getInstance(Context context) {
 		if (mMapManager == null) {
@@ -64,8 +56,6 @@ public class MapManager {
 //		m_mapControl.getMap().setCenter(new Point2D(12953693.6950684, 4858067.04711915));
 		mMapControl.getMap().refresh();
 		
-		mDynamicView = new DynamicView(mContext, mMapControl.getMap());
-//		mMapView.addDynamicView(mDynamicView);
 		return true;
 	}
 	
@@ -79,10 +69,6 @@ public class MapManager {
 	
 	public MapView getMapView() {
 		return mMapView;
-	}
-	
-	public DynamicView getDynamicView() {
-		return mDynamicView;
 	}
 	
 
